@@ -1,0 +1,3 @@
+[submodule "cookbooks/base"]
+	path = cookbooks/base
+	url = git@github.com:1n/base.git
