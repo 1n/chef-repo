@@ -1,0 +1,24 @@
+---
+driver:
+  name: ec2
+  aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID']%>
+  aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY']%>
+  aws_ssh_key_id: "<%= ENV['AWS_SSH_KEY_ID']%>"
+  ssh_key: "<%= ENV['AWS_SSH_KEY']%>"
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+    driver:
+      region: eu-central-1
+      availability_zone: eu-central-1a
+      flavor_id: t2.micro
+      image_id: ami-9a380b87
+      username: ubuntu
+
+suites:
+  - name: base
+    run_list: recipe[base::default]
+

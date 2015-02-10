@@ -10,3 +10,7 @@
 
 #RubyMine
 .idea/*
+
+#Kitchen logs
+.kitchen/logs/*
+.kitchen.local.yml
