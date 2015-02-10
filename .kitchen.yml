@@ -5,15 +5,16 @@ driver:
   aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY']%>
   aws_ssh_key_id: "<%= ENV['AWS_SSH_KEY_ID']%>"
   ssh_key: "<%= ENV['AWS_SSH_KEY']%>"
+  require_chef_omnibus: true
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
 
 platforms:
   - name: ubuntu-14.04
     driver:
-      region: eu-central-1
-      availability_zone: eu-central-1a
+      region: <%= ENV['EC2_REGION']%>
+      availability_zone: <%= ENV['EC2_AVAILABILITY_ZONE']%>
       flavor_id: t2.micro
       image_id: ami-9a380b87
       username: ubuntu
@@ -21,4 +22,3 @@ platforms:
 suites:
   - name: base
     run_list: recipe[base::default]
-

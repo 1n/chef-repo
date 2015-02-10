@@ -16,3 +16,9 @@ cookbook_path            ["#{current_dir}/../cookbooks"]
 cookbook_copyright "private, inc."
 cookbook_email     "vlad.tkatchev@gmail.com"
 cookbook_license   "apachev2"
+
+#knife-ec2
+knife[:aws_access_key_id] = ENV['AWS_ACCESS_KEY_ID']
+knife[:aws_secret_access_key] = ENV['AWS_SECRET_ACCESS_KEY']
+knife[:region] = ENV['EC2_REGION']
+knife[:availability_zone] = ENV['EC2_AVAILABILITY_ZONE']
