@@ -1,3 +1,18 @@
+chef-repo
+=============
+TODO: Enter chef-repo description here.
+
+cookbooks:
+- [ ] base
+- [ ] iptables
+- [ ] jenkins
+- [ ] openvpn
+- [ ] wordpress
+
+rake:
+- [ ] ci
+- [ ] databags update
+
 Overview
 ========
 

@@ -18,6 +18,13 @@ platforms:
       flavor_id: t2.micro
       image_id: ami-9a380b87
       username: ubuntu
+  - name: amazon-linux
+    driver:
+      region: <%= ENV['EC2_REGION']%>
+      availability_zone: <%= ENV['EC2_AVAILABILITY_ZONE']%>
+      flavor_id: t2.micro
+      image_id: ami-9d23aeea
+      username: ec2-user
 
 suites:
   - name: base
