@@ -27,5 +27,12 @@ platforms:
       username: ec2-user
 
 suites:
-  - name: base
-    run_list: recipe[base::default]
+  - name: jenkins
+    run_list:
+      - recipe[base::default]
+      - recipe[jenkins::default]
+  - name: repo
+    run_list:
+      - recipe[base::default]
+      - recipe[nexus::default]
+      - recipe[sonar::default]
