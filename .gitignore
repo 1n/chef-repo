@@ -7,10 +7,15 @@
 .chef/encrypted_data_bag_secret
 #trusted certs
 .chef/trusted_certs/*
+#secrets
+.chef/secrets/*
 
 #RubyMine
 .idea/*
 
-#Kitchen logs
-.kitchen/logs/*
-.kitchen.local.yml
+#Kitchen
+.kitchen/**/*
+
+#gem
+Gemfile.lock
+

@@ -1,3 +1,6 @@
 [submodule "cookbooks/base"]
 	path = cookbooks/base
 	url = git@github.com:1n/base.git
+[submodule "cookbooks/httpd-wrapper"]
+	path = cookbooks/httpd-wrapper
+	url = git@github.com:1n/httpd-wrapper.git

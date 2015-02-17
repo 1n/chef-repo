@@ -12,6 +12,8 @@ cookbooks:
 rake:
 - [ ] ci
 - [ ] databags update
+    - [ ] user input
+    - [ ] secrets path
 
 Overview
 ========

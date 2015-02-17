@@ -16,8 +16,9 @@ platforms:
       region: <%= ENV['EC2_REGION']%>
       availability_zone: <%= ENV['EC2_AVAILABILITY_ZONE']%>
       flavor_id: t2.micro
-      image_id: ami-9a380b87
+      image_id: ami-234ecc54
       username: ubuntu
+      #elastic ip
   - name: amazon-linux
     driver:
       region: <%= ENV['EC2_REGION']%>
@@ -27,10 +28,21 @@ platforms:
       username: ec2-user
 
 suites:
+  - name: test
+    #encrypted_data_bag_secret_key_path: "~/.chef/encrypted_data_bag_secret"
+    data_bags_path: "../../data_bags"
+    roles_path: "../../roles"
+    run_list:
+      - role[base]
+      - recipe[learn_chef_httpd::default]
+  - name: bastion
+    run_list:
+      - recipe[base::default]
+      - recipe[bastion::default]
   - name: jenkins
     run_list:
       - recipe[base::default]
-      - recipe[jenkins::default]
+      - role[jenkins]
   - name: repo
     run_list:
       - recipe[base::default]
