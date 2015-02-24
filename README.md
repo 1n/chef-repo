@@ -13,7 +13,7 @@ rake:
 - [ ] ci
 - [ ] databags update
     - [ ] user input
-    - [ ] secrets path
+    - [*] secrets path
 
 Overview
 ========

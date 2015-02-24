@@ -1,0 +1,19 @@
+{
+  "name": "jenkins",
+  "description": "jenkins role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[jenkins-wrapper::default]"
+  ],
+  "env_run_lists": {
+
+  }
+}

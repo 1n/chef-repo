@@ -1,0 +1,19 @@
+{
+  "name": "httpd",
+  "description": "httpd role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base]",
+    "recipe[httpd-wrapper::default]"
+  ],
+  "env_run_lists": {
+
+  }
+}

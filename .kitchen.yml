@@ -9,6 +9,9 @@ driver:
 
 provisioner:
   name: chef_zero
+  #encrypted_data_bag_secret_key_path: "~/.chef/encrypted_data_bag_secret"
+  #data_bags_path: "data_bags"
+  #roles_path: "roles"
 
 platforms:
   - name: ubuntu-14.04
@@ -28,23 +31,9 @@ platforms:
       username: ec2-user
 
 suites:
-  - name: test
-    #encrypted_data_bag_secret_key_path: "~/.chef/encrypted_data_bag_secret"
-    data_bags_path: "../../data_bags"
-    roles_path: "../../roles"
+  - name: httpd
     run_list:
-      - role[base]
-      - recipe[learn_chef_httpd::default]
-  - name: bastion
-    run_list:
-      - recipe[base::default]
-      - recipe[bastion::default]
+      - role[httpd]
   - name: jenkins
     run_list:
-      - recipe[base::default]
       - role[jenkins]
-  - name: repo
-    run_list:
-      - recipe[base::default]
-      - recipe[nexus::default]
-      - recipe[sonar::default]
