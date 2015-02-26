@@ -6,6 +6,9 @@ driver:
   aws_ssh_key_id: "<%= ENV['AWS_SSH_KEY_ID']%>"
   ssh_key: "<%= ENV['AWS_SSH_KEY']%>"
   require_chef_omnibus: true
+  region: <%= ENV['EC2_REGION']%>
+  availability_zone: <%= ENV['EC2_AVAILABILITY_ZONE']%>
+  flavor_id: t2.micro
 
 provisioner:
   name: chef_zero
@@ -16,17 +19,11 @@ provisioner:
 platforms:
   - name: ubuntu-14.04
     driver:
-      region: <%= ENV['EC2_REGION']%>
-      availability_zone: <%= ENV['EC2_AVAILABILITY_ZONE']%>
-      flavor_id: t2.micro
       image_id: ami-234ecc54
       username: ubuntu
       #elastic ip
   - name: amazon-linux
     driver:
-      region: <%= ENV['EC2_REGION']%>
-      availability_zone: <%= ENV['EC2_AVAILABILITY_ZONE']%>
-      flavor_id: t2.micro
       image_id: ami-9d23aeea
       username: ec2-user
 

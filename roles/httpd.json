@@ -10,7 +10,6 @@
   },
   "chef_type": "role",
   "run_list": [
-    "role[base]",
     "recipe[httpd-wrapper::default]"
   ],
   "env_run_lists": {

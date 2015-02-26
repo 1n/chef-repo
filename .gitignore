@@ -16,6 +16,9 @@
 #Kitchen
 .kitchen/**/*
 
-#gem
+#lock files
 Gemfile.lock
+Berksfile.lock
 
+
+.kitchen.local.yml

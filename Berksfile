@@ -1,8 +1,4 @@
 source 'https://api.berkshelf.com'
-metadata
 
-cookbook 'httpd'
-cookbook 'jenkins'
-
-cookbook 'base', github: '1n/base.git'
-cookbook 'httpd-wrapper', github: '1n/httpd-wrapper.git'
+cookbook 'base', github: '1n/base'
+#cookbook 'base', path: '~/chef-repo/cookbooks/base'
