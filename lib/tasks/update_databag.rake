@@ -13,6 +13,11 @@ namespace :data do
     CACHED_API_FILE = "drive-#{API_VERSION}.cache"
     CREDENTIAL_STORE_FILE = '.chef/secrets/google-drive/client-secrets-oauth2.json'
 
+    def prompt(*args)
+      print(*args)
+      STDIN.gets.chomp
+    end
+
     def setup()
       client = Google::APIClient.new(:application_name => 'google spreadsheet do databag',
                                      :application_version => '1.0.0')
@@ -36,14 +41,11 @@ namespace :data do
     client = setup()
     session = GoogleDrive.login_with_oauth(client)
 
-    #print 'Enter your databag google drive spreadsheet link: '
-    #google_drive_spreadsheet_link = gets.chomp
-    google_drive_spreadsheet_link = 'https://docs.google.com/spreadsheets/d/1-Neg9oHdgOikqeLXqCPbTPSwaR4dUtVHqktv-Ou-3TE/edit#gid=0'# if google_drive_spreadsheet_link.empty?
+    google_drive_spreadsheet_link = prompt 'Enter your databag google drive spreadsheet link: '
     ws = session.spreadsheet_by_url(google_drive_spreadsheet_link).worksheets[0]
 
-    #print 'Enter desired databag name(leave empty to use spreadsheet title as databag name): '
-    #data_bag_name = gets.chomp
-    data_bag_name = ws.title# if data_bag_name.empty?
+    data_bag_name = prompt 'Enter desired databag name(leave empty to use spreadsheet title as databag name): '
+    data_bag_name = ws.title if data_bag_name.empty?
     FileUtils.mkdir_p("data_bags/#{data_bag_name}") unless File.exist?(data_bag_name) and File.directory?(data_bag_name)
 
     for row in 2..ws.num_rows
