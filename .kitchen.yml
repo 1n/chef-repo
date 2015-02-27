@@ -28,6 +28,9 @@ platforms:
       username: ec2-user
 
 suites:
+  - name: base
+    run_list:
+      - role[base]
   - name: httpd
     run_list:
       - role[httpd]

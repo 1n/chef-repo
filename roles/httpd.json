@@ -10,7 +10,8 @@
   },
   "chef_type": "role",
   "run_list": [
-    "recipe[httpd-wrapper::default]"
+    "role[base]",
+    "recipe[vltk-httpd::default]"
   ],
   "env_run_lists": {
 

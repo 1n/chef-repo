@@ -11,7 +11,7 @@
   "chef_type": "role",
   "run_list": [
     "role[base]",
-    "recipe[jenkins-wrapper::default]"
+    "recipe[vlrk-jenkins::default]"
   ],
   "env_run_lists": {
 
