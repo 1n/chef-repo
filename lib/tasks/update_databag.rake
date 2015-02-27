@@ -54,7 +54,7 @@ namespace :data do
         data_bag_item[ws[1, col].to_sym] = ws[row, col]
       end
       p data_bag_item
-      databag_item_json_path="data_bags/#{data_bag_name}/#{data_bag_item[:user_name]}.json"
+      databag_item_json_path="data_bags/#{data_bag_name}/#{data_bag_item[:id]}.json"
 
       File.new(databag_item_json_path, 'w+')
       File.open(databag_item_json_path, 'w') { |file| file.write(JSON.pretty_generate(data_bag_item, :indent => "\t")) }
